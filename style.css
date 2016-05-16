@@ -1,0 +1,34 @@
+/* raleway font used for all text */
+body{
+  font-family: 'Raleway', sans-serif;
+}
+
+/* to remove up-down arrows from the number input field */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0; 
+}
+
+.errorLabel {
+  color:red;
+}
+
+.jumbotron {
+  background-image: url(images/iot-jumbotron.jpg);
+}
+
+.jumbotrontext {
+  color: whitesmoke;
+}
+
+.jumbotron .h1, .jumbotron h1 {
+  color: whitesmoke;
+}
+
+h2, h3 {
+	margin-top: 0px;
+}
+
