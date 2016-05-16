@@ -1,272 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/jquery/1.12.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-  <script src="jquery.timeago.js" type="text/javascript"></script>
-  <link rel = "stylesheet" href = "style.css">
-  <title>Channel Explorer</title>
-</head>
-<body>
-
-  <!-- Navbar code start  -->
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Channel Explorer</a>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css">
+      <script src="https://cdn.jsdelivr.net/jquery/1.12.0/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+      <script src="jquery.timeago.js" type="text/javascript"></script>
+      <link rel = "stylesheet" href = "style.css">
+      <title>Channel Explorer</title>
+   </head>
+   <body>
+      <!-- Navbar code start  -->
+      <nav class="navbar navbar-inverse">
+         <div class="container-fluid">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="#">Channel Explorer</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+               </ul>
+               <ul class="nav navbar-nav navbar-right">
+                  <li><a>
+                     <span class="glyphicon glyphicon-wrench"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"></span>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <!-- Navbar code end  -->
+      <!-- Modal code start -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="exampleModalLabel">Edit Channel Information</h4>
+               </div>
+               <div class="modal-body">
+                  <form>
+                     <div class="form-group">
+                        <label for="recipient-name" class="control-label">Channel Id: </label>
+                        <input type="number" class="form-control" id="modalChannelId">
+                     </div>
+                     <div class="form-group">
+                        <label for="message-text" class="control-label">Read Key: </label>
+                        <input type="text" class="form-control" id="modalReadKey"></input>
+                     </div>
+                     <div class="form-group">
+                        <label for="message-text" class="control-label">Write Key: </label>
+                        <input type="text" class="form-control" id="modalWriteKey"></input>
+                     </div>
+                     <div class="form-group">
+                        <label for="message-text" class="control-label">Field Number: </label>
+                        <input type="number" class="form-control" id="modalfieldNumber" placeholder="Enter a number between 1 and 8"></input>
+                     </div>
+                  </form>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  <button id="modalChannelInfo" type="button" class="btn btn-primary btn-flash" data-dismiss="modal">Save</button>
+               </div>
+            </div>
+         </div>
       </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a>
-          <span class="glyphicon glyphicon-wrench"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"></span>
-        </a></li>
-        </ul>
-        </li>
-      </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- Navbar code end  -->
-
-  <!-- Modal code start -->
-
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Edit Channel Information</h4>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="recipient-name" class="control-label">Channel Id: </label>
-            <input type="number" class="form-control" id="modalChannelId">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="control-label">Read Key: </label>
-            <input type="text" class="form-control" id="modalReadKey"></input>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="control-label">Write Key: </label>
-            <input type="text" class="form-control" id="modalWriteKey"></input>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="control-label">Field Number: </label>
-            <input type="number" class="form-control" id="modalfieldNumber" placeholder="Enter a number between 1 and 8"></input>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button id="modalChannelInfo" type="button" class="btn btn-primary btn-flash" data-dismiss="modal">Save</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Modal code end -->
-
-  <!-- main container start -->
-  <div class="container">
-
-<!-- code for jumbotron starts -->
-    <div class="jumbotron">
-      <h1>IoT Channel Explorer</h1>      
-      <p class="jumbotrontext">This website can be used as a debugging tool to check data entries into a particular IoT channel.</p>
-    </div>
-
-    <div align="center" style="color:green;font-size: large;
-    font-weight: bolder; padding: 5px;" id="status-area"></div>
-    <div align="center" style="color:red;font-size: large;
-    font-weight: bolder; padding: 5px;" id="error-message">Please enter a value first!</div>
-    <!-- code for jumbotron ends --> 
-
-    <!-- manual data insertion start -->
-    <div class="row">
-
-      <!-- column for text display -->
-      <div class="col-md-4">
-        <h2>Manual Data Insertion</h2>
-        <p>Type in a number here.<br>
-          <span class="text-muted small">This number will be inserted as field data to the channel.</span></p>
-          <form class="form-inline">
-            <div class="form-group">
-              <label for="manualInputVal">Value: </label>
-              <input type="number" class="form-control" id="manualInputVal" placeholder="Enter a number">
-            </div>
-            <button id="manualInputButton" type="submit" class="btn btn-success">Write</button>
-          </form>
-        </div>
-
-        <!-- column for channel display -->
-        <div id="channelinfomanual" class="panel panel-default col-md-3">
-          <div class="panel-heading">
-            <i class="fa fa-bell fa-fw"></i> Channel Information
-          </div>
-          <div class="panel-body">
-            <div class="list-group">
-              <a class="list-group-item">
-                <i class="fa fa-comment fa-fw"></i>Id
-                <span id="channelidmanual" class="pull-right text-muted"><em></em>
-                </span>
-              </a>
-              <a class="list-group-item">
-                <i class="fa fa-twitter fa-fw"></i>Name
-                <span id="channelnamemanual" class="pull-right text-muted"><em></em>
-                </span>
-              </a>
-              <a class="list-group-item">
-                <i class="fa fa-envelope fa-fw"></i>Field
-                <span id="fieldnamemanual" class="pull-right text-muted "><em></em>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- column for data display -->
-        <div class="col-md-5">
-          <div class="container col-md-8 col-md-offset-2 validCustomPanel">
-            <h3 align="center">Entry Data</h3>
-            <div class="panel panel-default">
-              <div id="customMainContent" align="center" class="panel-body"></div>
-            </div>
-          </div>
-          <div class="container col-md-8 col-md-offset-2 errorCustomPanel">
-            <h2 align="center">Error Id</h2>
-            <div class="panel panel-default">
-              <div id="customErrorContent" align="center" class="panel-body"></div>
-            </div>
-            <p class="errorLabel small">Multiple write attempts within a 15 second period will return an Error Id -> 0 . Please try again after 15 seconds</p>
-          </div>
-        </div>
-
-      </div>
-      <hr>
-      <!-- manual data insertion end -->
-
-      <!-- automated data insertion start -->
-      <div class="row">
-
-        <!-- column for text display -->
-        <div class="col-md-4">
-          <h2>Automated Data Insertion</h2>
-          <p>Press the play buttom below.<br>
-            <span class="text-muted small">This will push random data every 5 seconds to the channel. Multiple data insertion within 15 seconds will return 0 as the Entry Id</span></p>
-            <button type="button" class="btn btn-success col-md-offset-3 col-md-3" onClick="playPause(this)" id="start">
-              <span class="glyphicon glyphicon-play"></span>
-            </button>
-          </div>
-
-          <!-- column for channel display -->
-          <div id="channelinfoautomated" class="panel panel-default col-md-3">
-            <div class="panel-heading">
-              <i class="fa fa-bell fa-fw"></i> Channel Information
-            </div>
-            <div class="panel-body">
-              <div class="list-group">
-                <a class="list-group-item">
-                  <i class="fa fa-comment fa-fw"></i>Id
-                  <span id="channelidautomated" class="pull-right text-muted"><em></em>
-                  </span>
-                </a>
-                <a class="list-group-item">
-                  <i class="fa fa-twitter fa-fw"></i>Name
-                  <span id="channelnameautomated" class="pull-right text-muted"><em></em>
-                  </span>
-                </a>
-                <a class="list-group-item">
-                  <i class="fa fa-envelope fa-fw"></i>Field
-                  <span id="fieldnameautomated" class="pull-right text-muted "><em></em>
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- column for data display -->
-          <div class="col-md-5">
-            <div class="col-md-12">
-              <table id="automatedDataContent" class="table table-striped">
-              </table>
-            </div>
-          </div>
-
-        </div>
-        <hr>
-        <!-- automated data insertion end -->
-        
-        <!-- top 5 data display start -->
-        <div class="row">
-
-          <!-- column for text display -->
-          <div class="col-md-4">
-            <h2>Data Display</h2>
-            <p>Recent Data Inserted<br>
-              <span class="text-muted small">Click here to get the last 5 data entries into the channel.</span></p>
-              <button id="getData" type="button" class="btn btn-success col-md-offset-3 col-md-3">Get</button>
-            </div>
-
+      <!-- Modal code end -->
+      <!-- main container start -->
+      <div class="container">
+         <!-- code for jumbotron starts -->
+         <div class="jumbotron">
+            <h1>IoT Channel Explorer</h1>
+            <p class="jumbotrontext">This website can be used as a debugging tool to check data entries into a particular IoT channel.</p>
+         </div>
+         <div align="center" style="color:green;font-size: large;
+            font-weight: bolder; padding: 5px;" id="status-area">
+         </div>
+         <div align="center" style="color:red;font-size: large;
+            font-weight: bolder; padding: 5px;" id="error-message">Please enter a value first!
+         </div>
+         <!-- code for jumbotron ends --> 
+         <!-- manual data insertion start -->
+         <div class="row">
             <!-- column for text display -->
-            <div id="channelinfogetdata" class="panel panel-default col-md-3">
-              <div class="panel-heading">
-                <i class="fa fa-bell fa-fw"></i> Channel Information
-              </div>
-              <div class="panel-body">
-                <div class="list-group">
-                  <a class="list-group-item">
-                    <i class="fa fa-comment fa-fw"></i>Id
-                    <span id="channelidgetdata" class="pull-right text-muted"><em></em>
-                    </span>
-                  </a>
-                  <a class="list-group-item">
-                    <i class="fa fa-twitter fa-fw"></i>Name
-                    <span id="channelnamegetdata" class="pull-right text-muted"><em></em>
-                    </span>
-                  </a>
-                  <a class="list-group-item">
-                    <i class="fa fa-envelope fa-fw"></i>Field
-                    <span id="fieldnamegetdata" class="pull-right text-muted "><em></em>
-                    </span>
-                  </a>
-                </div>
-              </div>
+            <div class="col-md-4">
+               <h2>Manual Data Insertion</h2>
+               <p>Type in a number here.<br>
+                  <span class="text-muted small">This number will be inserted as field data to the channel.</span>
+               </p>
+               <form class="form-inline">
+                  <div class="form-group">
+                     <label for="manualInputVal">Value: </label>
+                     <input type="number" class="form-control" id="manualInputVal" placeholder="Enter a number">
+                  </div>
+                  <button id="manualInputButton" type="submit" class="btn btn-success">Write</button>
+               </form>
             </div>
-
+            <!-- column for channel display -->
+            <div id="channelinfomanual" class="panel panel-default col-md-3">
+               <div class="panel-heading">
+                  <i class="fa fa-bell fa-fw"></i> Channel Information
+               </div>
+               <div class="panel-body">
+                  <div class="list-group">
+                     <a class="list-group-item">
+                     <i class="fa fa-comment fa-fw"></i>Id
+                     <span id="channelidmanual" class="pull-right text-muted"><em></em>
+                     </span>
+                     </a>
+                     <a class="list-group-item">
+                     <i class="fa fa-twitter fa-fw"></i>Name
+                     <span id="channelnamemanual" class="pull-right text-muted"><em></em>
+                     </span>
+                     </a>
+                     <a class="list-group-item">
+                     <i class="fa fa-envelope fa-fw"></i>Field
+                     <span id="fieldnamemanual" class="pull-right text-muted "><em></em>
+                     </span>
+                     </a>
+                  </div>
+               </div>
+            </div>
             <!-- column for data display -->
             <div class="col-md-5">
-              <table id="mostRecentData" class="table table-striped">
-              </table>
+               <div class="container col-md-8 col-md-offset-2 validCustomPanel">
+                  <h3 align="center">Entry Data</h3>
+                  <div class="panel panel-default">
+                     <div id="customMainContent" align="center" class="panel-body"></div>
+                  </div>
+               </div>
+               <div class="container col-md-8 col-md-offset-2 errorCustomPanel">
+                  <h2 align="center">Error Id</h2>
+                  <div class="panel panel-default">
+                     <div id="customErrorContent" align="center" class="panel-body"></div>
+                  </div>
+                  <p class="errorLabel small">Multiple write attempts within a 15 second period will return an Error Id -> 0 . Please try again after 15 seconds</p>
+               </div>
             </div>
-
-          </div>
-          <hr>
-          <!-- top 5 data display end -->
-
-          <!-- footer -->
-          <footer>
+         </div>
+         <hr>
+         <!-- manual data insertion end -->
+         <!-- automated data insertion start -->
+         <div class="row">
+            <!-- column for text display -->
+            <div class="col-md-4">
+               <h2>Automated Data Insertion</h2>
+               <p>Press the play buttom below.<br>
+                  <span class="text-muted small">This will push random data every 5 seconds to the channel. Multiple data insertion within 15 seconds will return 0 as the Entry Id</span>
+               </p>
+               <button type="button" class="btn btn-success col-md-offset-3 col-md-3" onClick="playPause(this)" id="start">
+               <span class="glyphicon glyphicon-play"></span>
+               </button>
+            </div>
+            <!-- column for channel display -->
+            <div id="channelinfoautomated" class="panel panel-default col-md-3">
+               <div class="panel-heading">
+                  <i class="fa fa-bell fa-fw"></i> Channel Information
+               </div>
+               <div class="panel-body">
+                  <div class="list-group">
+                     <a class="list-group-item">
+                     <i class="fa fa-comment fa-fw"></i>Id
+                     <span id="channelidautomated" class="pull-right text-muted"><em></em>
+                     </span>
+                     </a>
+                     <a class="list-group-item">
+                     <i class="fa fa-twitter fa-fw"></i>Name
+                     <span id="channelnameautomated" class="pull-right text-muted"><em></em>
+                     </span>
+                     </a>
+                     <a class="list-group-item">
+                     <i class="fa fa-envelope fa-fw"></i>Field
+                     <span id="fieldnameautomated" class="pull-right text-muted "><em></em>
+                     </span>
+                     </a>
+                  </div>
+               </div>
+            </div>
+            <!-- column for data display -->
+            <div class="col-md-5">
+               <div class="col-md-12">
+                  <table id="automatedDataContent" class="table table-striped">
+                  </table>
+               </div>
+            </div>
+         </div>
+         <hr>
+         <!-- automated data insertion end -->
+         <!-- top 5 data display start -->
+         <div class="row">
+            <!-- column for text display -->
+            <div class="col-md-4">
+               <h2>Data Display</h2>
+               <p>Recent Data Inserted<br>
+                  <span class="text-muted small">Click here to get the last 5 data entries into the channel.</span>
+               </p>
+               <button id="getData" type="button" class="btn btn-success col-md-offset-3 col-md-3">Get</button>
+            </div>
+            <!-- column for text display -->
+            <div id="channelinfogetdata" class="panel panel-default col-md-3">
+               <div class="panel-heading">
+                  <i class="fa fa-bell fa-fw"></i> Channel Information
+               </div>
+               <div class="panel-body">
+                  <div class="list-group">
+                     <a class="list-group-item">
+                     <i class="fa fa-comment fa-fw"></i>Id
+                     <span id="channelidgetdata" class="pull-right text-muted"><em></em>
+                     </span>
+                     </a>
+                     <a class="list-group-item">
+                     <i class="fa fa-twitter fa-fw"></i>Name
+                     <span id="channelnamegetdata" class="pull-right text-muted"><em></em>
+                     </span>
+                     </a>
+                     <a class="list-group-item">
+                     <i class="fa fa-envelope fa-fw"></i>Field
+                     <span id="fieldnamegetdata" class="pull-right text-muted "><em></em>
+                     </span>
+                     </a>
+                  </div>
+               </div>
+            </div>
+            <!-- column for data display -->
+            <div class="col-md-5">
+               <table id="mostRecentData" class="table table-striped">
+               </table>
+            </div>
+         </div>
+         <hr>
+         <!-- top 5 data display end -->
+         <!-- footer -->
+         <footer>
             <p class="pull-right"><a href="#">Back to top</a> </p>
             <p>&copy; ThingSpeak &middot;<a target="_blank" href="http://community.thingspeak.com/"> More Information </a> &middot;
-            <a target="_blank" href="https://www.mathworks.com/help/thingspeak/"> Help</a> </p>
-          </footer>
-
-        </div>
-        <!-- main container end -->
-
-    <script src="custom-channel.js"></script>
-    </body>
+               <a target="_blank" href="https://www.mathworks.com/help/thingspeak/"> Help</a> 
+            </p>
+         </footer>
+      </div>
+      <!-- main container end -->
+      <script src="custom-channel.js"></script>
+   </body>
 </html>
