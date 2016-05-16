@@ -202,9 +202,9 @@ if ($('#start').find(".glyphicon").hasClass("glyphicon-pause")) {
     });  
   }
 
-  $("#clickMe").click(function(event){
+  $("#manualInputButton").click(function(event){
     event.preventDefault();
-    if (document.getElementById('exampleInputName2').value === ""){
+    if (document.getElementById('manualInputVal').value === ""){
       $("#error-message").slideDown(function() {
       setTimeout(function() {
         $("#error-message").slideUp();
@@ -250,7 +250,7 @@ if ($('#start').find(".glyphicon").hasClass("glyphicon-pause")) {
                 }
               });
     $.ajax({
-      url: 'https://api.thingspeak.com/update?api_key=' + $('#modalWriteKey').val() +'&field' + $('#modalfieldNumber').val()+ '=' + document.getElementById('exampleInputName2').value,
+      url: 'https://api.thingspeak.com/update?api_key=' + $('#modalWriteKey').val() +'&field' + $('#modalfieldNumber').val()+ '=' + document.getElementById('manualInputVal').value,
       dataType:"text",
       success: function(data){
         if (data != 0){
@@ -259,15 +259,15 @@ if ($('#start').find(".glyphicon").hasClass("glyphicon-pause")) {
           $('.errorCustomPanel').hide();
           var $customMainContent = $("#customMainContent");
           $customMainContent.append('<b>Entry Id:  </b>' +data + '<br>');
-          $customMainContent.append('<b>Value:  </b>' + document.getElementById('exampleInputName2').value);
-          document.getElementById('exampleInputName2').value=null;
+          $customMainContent.append('<b>Value:  </b>' + document.getElementById('manualInputVal').value);
+          document.getElementById('manualInputVal').value=null;
         }else {
           $('#customErrorContent').empty();
           $('.errorCustomPanel').show();
           $('.validCustomPanel').hide();
           var $customErrorContent = $("#customErrorContent");
           $customErrorContent.append(data);
-          document.getElementById('exampleInputName2').value=null;
+          document.getElementById('manualInputVal').value=null;
         }
 
       },
