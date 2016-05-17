@@ -7,7 +7,9 @@ IoT Channel Explorer is a free debugging tool that lets one to collect and gener
 IoT Channel Explorer was created to provide ThingSpeak users an intuitive and engaging user interface to view and generate data for their channels.
 
 ## Installation
-Clone the repository in the local and run index.html .
+1. Clone the repository in local
+2. Change the initial channel parameters in Setup.js
+3. Run index.html
 
 ## API Reference
 Thingspeak API is used here for the posting and getting data from the channels.
