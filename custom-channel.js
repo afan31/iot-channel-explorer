@@ -19,7 +19,7 @@ $("#modalChannelInfo").click(function() {
     thingspeak['field_number'] = document.getElementById('modalfieldNumber').value;
     settingUpModalContent();
     hideContent();
-    automatedDataContent();
+    automatedDataTable();
     // Resetting the play button on change of channel params
     if ($('#start').find(".glyphicon").hasClass("glyphicon-pause")) {
         // show play button state
@@ -73,7 +73,9 @@ $("#manualInputButton").click(function(event) {
                     document.getElementById('manualInputVal').value = null;
                 }
             },
-            error: function() {}
+            error: function() {
+                alert('failure');
+            }
         });
     }
 });
@@ -112,7 +114,7 @@ function putDataIntoChannel() {
                 }
             },
             error: function() {
-                alert('Please fill in the channel information first !');
+                alert('failure');
             }
         });
     }
