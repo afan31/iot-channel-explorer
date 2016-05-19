@@ -112,7 +112,7 @@ function putDataIntoChannel() {
                 }
             },
             error: function() {
-                alert('failure');
+                alert('Please fill in the channel information first !');
             }
         });
     }
