@@ -8,12 +8,15 @@ IoT Channel Explorer was created to provide ThingSpeak users an intuitive and en
 
 ## Installation
 1. Clone the repository in local
-2. Change the initial channel parameters in Setup.js
-3. Run index.html
+2. Change the initial channel parameters in setup.js
+3. Open index.html in Chrome.
 
 ## API Reference
 Thingspeak API is used here for the posting and getting data from the channels.
 
 ## License
 The MIT License (MIT)
+
+## Cloud URL :
+https://iot-channel-explorer.herokuapp.com/
 
